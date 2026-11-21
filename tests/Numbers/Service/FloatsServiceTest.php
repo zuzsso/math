@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Math\Tests\Numbers\Service;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Math\Numbers\Service\FloatsService;
 
@@ -17,7 +18,7 @@ class FloatsServiceTest extends TestCase
         $this->sut = new FloatsService();
     }
 
-    public function comparesCorrectlyDataProvider(): array
+    public static function comparesCorrectlyDataProvider(): array
     {
         return [
             [0, 0, true],
@@ -39,13 +40,7 @@ class FloatsServiceTest extends TestCase
         ];
     }
 
-    /**
-     * @param float $f1
-     * @param float $f2
-     * @param bool $expected
-     * @return void
-     * @dataProvider comparesCorrectlyDataProvider
-     */
+    #[DataProvider('comparesCorrectlyDataProvider')]
     public function testComparesCorrectly(float $f1, float $f2, bool $expected): void
     {
         $actual = $this->sut->equalFloats($f1, $f2, PHP_FLOAT_EPSILON);

@@ -5,3 +5,4 @@
 PROJECT_PATH='../'
 
 PHP_CS_FIXER_PATH="${PROJECT_PATH}vendor/bin/php-cs-fixer"
+PHP_UNIT_BIN_PATH="${PROJECT_PATH}vendor/bin/phpunit"

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Math\Tests\Numbers\Service;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Math\Numbers\Service\StringRepresentsIntegerValueChecker;
 
@@ -20,7 +21,7 @@ class StringRepresentsIntegerValueCheckerTest extends TestCase
     /**
      * @return array
      */
-    public function returnsCorrectValuePositiveOrZeroDataProvider(): array
+    public static function returnsCorrectValuePositiveOrZeroDataProvider(): array
     {
         return [
             ['123', true],
@@ -34,12 +35,7 @@ class StringRepresentsIntegerValueCheckerTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider returnsCorrectValuePositiveOrZeroDataProvider
-     * @param string $s
-     * @param bool $expected
-     * @return void
-     */
+    #[DataProvider('returnsCorrectValuePositiveOrZeroDataProvider')]
     public function testReturnsCorrectValuesPositiveOrZero(string $s, bool $expected): void
     {
         $actual = $this->sut->checkPositiveOrZero($s);
