@@ -12,7 +12,7 @@ use Math\Numbers\UseCase\EqualFloats;
 
 use function DI\autowire;
 
-class DependencyInjectionManifest extends AbstractDependencyInjection
+class MathDiManifest extends AbstractDependencyInjection
 {
     public static function getDependencies(): array
     {
